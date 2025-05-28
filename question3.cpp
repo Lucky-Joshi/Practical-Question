@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 class DNode {
 public:
     int data;
@@ -49,12 +48,10 @@ int main() {
     dll.insertAtEnd(10);
     dll.insertAtEnd(20);
     dll.insertAtEnd(30);
-
-    cout << "List after insertions: ";
+    cout << "List after inserting elements: ";
     dll.display();
 
     dll.removeFromBeginning();
-
     cout << "List after removing from beginning: ";
     dll.display();
 
