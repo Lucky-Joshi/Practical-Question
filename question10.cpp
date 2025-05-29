@@ -10,11 +10,11 @@ public:
     }
 
     void dequeue() {
-        if (!q.empty()) q.pop_front();
+        if (!q.empty()) q.pop_front(); // Remove the front element
     }
 
     int peek() {
-        return q.empty() ? -1 : q.front();
+        return q.empty() ? -1 : q.front(); // Return the front element without removing it
     }
 
     bool isEmpty() {

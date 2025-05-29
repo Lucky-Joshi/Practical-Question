@@ -4,12 +4,12 @@ using namespace std;
 class QueueArray {
     int arr[100], front, rear;
 public:
-    QueueArray() : front(-1), rear(-1) {}
+    QueueArray() : front(-1), rear(-1) {} // Constructor to initialize the queue. -1 for front and rear indicates an empty queue.
 
     void enqueue(int val) {
         if (rear == 99) return;
         if (front == -1) front = 0;
-        arr[++rear] = val;
+        arr[++rear] = val; // increment rear and add the value at the rear position
     }
 
     void dequeue() {

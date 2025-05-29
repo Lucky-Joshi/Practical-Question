@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 class CNode {
 public:
@@ -28,19 +27,25 @@ public:
     void remove(int val) {
         if (!tail) return;
         CNode *curr = tail->next, *prev = tail;
+        bool found = false;
         do {
             if (curr->data == val) {
-                if (curr == tail && curr->next == tail) tail = nullptr;
-                else {
-                    if (curr == tail) tail = prev;
-                    prev->next = curr->next;
-                }
-                delete curr;
-                return;
+                found = true;
+                break;
             }
             prev = curr;
             curr = curr->next;
         } while (curr != tail->next);
+
+        if (found) {
+            if (curr == tail && curr->next == tail) {
+                tail = nullptr;
+            } else {
+                if (curr == tail) tail = prev;
+                prev->next = curr->next;
+            }
+            delete curr;
+        }
     }
 
     CNode* search(int val) {

@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 class DNode {
 public:
     int data;
@@ -26,11 +27,11 @@ public:
     }
 
     void removeFromBeginning() {
-        if (!head) return;
-        DNode* del = head;
-        head = head->next;
-        if (head) head->prev = nullptr;
-        delete del;
+        if (!head) return; // List is empty
+        DNode* del = head; // Node to be deleted
+        head = head->next; // Move head to the next node
+        if (head) head->prev = nullptr; // If the list is not empty, set the new head's prev to nullptr
+        delete del; // Delete the old head
     }
 
     void display() {

@@ -5,7 +5,7 @@ class Node {
 public:
     int data;
     Node* next;
-    Node(int value) : data(value), next(nullptr) {}
+    Node(int value) : data(value), next(nullptr) {} // Constructor to initialize node with value and next pointer
 };
 
 class SinglyLinkedList {
@@ -22,36 +22,36 @@ public:
     }
 
     void insertAtPosition(int val, int pos) {
-        Node* newNode = new Node(val);
-        if (pos == 0) {
-            newNode->next = head;
+        Node* newNode = new Node(val); // Create a new node
+        if (pos == 0) { 
+            newNode->next = head; // Insert at the head
             head = newNode;
             return;
         }
-        Node* temp = head;
+        Node* temp = head; // Start from the head
         for (int i = 0; i < pos - 1 && temp != nullptr; i++)
             temp = temp->next;
 
-        if (!temp) {
+        if (!temp) { // If position is out of bounds
             cout << "Position out of bounds\n";
             return;
         }
-        newNode->next = temp->next;
+        newNode->next = temp->next; // Link the new node to the next node
         temp->next = newNode;
     }
 
     void removeFromEnd() {
-        if (!head) return;
-        if (!head->next) {
+        if (!head) return; // List is empty
+        if (!head->next) { // Only one element
             delete head;
             head = nullptr;
             return;
         }
-        Node* temp = head;
-        while (temp->next->next)
+        Node* temp = head; // Start from the head
+        while (temp->next->next) // Traverse to the second last node
             temp = temp->next;
-        delete temp->next;
-        temp->next = nullptr;
+        delete temp->next; // Delete the last node
+        temp->next = nullptr; // Set the next of second last node to nullptr
     }
 
     int search(int val) {
@@ -77,18 +77,18 @@ public:
 
     void insertAtEnd(int val) {
         Node* newNode = new Node(val);
-        if (!head) {
+        if (!head) { // If the list is empty
             head = newNode;
             return;
         }
         Node* temp = head;
-        while (temp->next)
+        while (temp->next) // Traverse to the end of the list
             temp = temp->next;
         temp->next = newNode;
     }
 
     void removeAtPosition(int pos) {
-        if (!head) return;
+        if (!head) return; // List is empty
         if (pos == 0) {
             Node* del = head;
             head = head->next;
@@ -120,7 +120,7 @@ public:
             count++;
             temp = temp->next;
         }
-        cout << (count % 2 == 0 ? "Even" : "Odd") << endl;
+        cout << (count % 2 == 0 ? "Even" : "Odd") << endl; 
     }
 };
 
